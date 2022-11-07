@@ -1,5 +1,6 @@
 const axios = require('axios')
 const express = require('express')
+const cors = require('cors')
 const app = express()
 
 const BASE_URL = `https://rickandmortyapi.com`
@@ -12,6 +13,8 @@ const requestLogger = (request, response, next) => {
   console.log('---')
   next()
 }
+
+app.use(cors())
 
 app.use(requestLogger)
 
